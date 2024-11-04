@@ -1,0 +1,15 @@
+<!-- shop/templates/shop/flower_detail.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ flower.name }}</title>
+</head>
+<body>
+    <h1>{{ flower.name }}</h1>
+    <p>Price: {{ flower.price }} USD</p>
+    <p>Description: {{ flower.description }}</p>
+    <img src="{{ flower.image.url }}" alt="{{ flower.name }}">
+    <button onclick="location.href='{% url 'add_to_cart' flower.id %}'">Add to Cart</button>
+</body>
+</html>

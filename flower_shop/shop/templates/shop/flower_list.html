@@ -1,0 +1,34 @@
+<!-- shop/templates/shop/flower_list.html -->
+
+<!DOCTYPE html>
+{% load custom_filters %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flower Catalog</title>
+</head>
+<body>
+
+    <h1>Flower Catalog</h1>
+    <ul>
+        {% for flower in flowers %}
+            <li>
+                <a href="{% url 'flower_detail' flower.id %}">{{ flower.name }}</a>
+                - {{ flower.price }} RUB
+            </li>
+        {% endfor %}
+    </ul>
+
+    <h2>Корзина</h2>
+
+    <ul>
+        {% if request.session.cart %}
+            {% for pk, quantity in request.session.cart.items %}
+                <li>{{ flowers_dict|get_item:pk }}: {{ quantity }}</li>
+            {% endfor %}
+        {% else %}
+            <li>Корзина пуста.</li>
+        {% endif %}
+    </ul>
+</body>
+</html>

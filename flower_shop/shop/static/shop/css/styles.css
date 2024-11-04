@@ -1,0 +1,100 @@
+body {
+
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.header-background {
+    position: fixed; /* Фиксируем фон */
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100vh; /* Занимает всю высоту экрана */
+    background-image: url("/static/shop/images/sur.jpg");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1; /* Помещаем за другие элементы */
+}
+
+main {
+    /* padding-top теперь устанавливается динамически через JavaScript */
+    margin-top: 0;
+    padding: 20px;
+}
+
+header {
+    position: fixed;
+    text-align: center;
+    width: 100%;
+    background-image: url("/static/shop/images/panorama.jpg1"); /* Укажите путь к вашей картинке */
+    background-size: cover; /* Изображение покроет весь header */
+    background-position: center; /* Центрирование изображения */
+    background-repeat: no-repeat; /* Отключение повторения изображения */
+    color: white;
+    padding: 10px 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Тень для чердака */
+    background-color: rgba(76, 175, 80, 0.7); /* Зеленый цвет с 70% непрозрачностью */
+}
+
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.flower-container {
+    display: flex;
+    flex-wrap: wrap; /* Позволяет карточкам переноситься на новую строку */
+    justify-content: space-between; /* Равномерное распределение карточек */
+}
+
+.flower-card {
+    flex: 1 1 calc(33.33% - 20px); /* Каждая карточка занимает 1/3 ширины, с учетом отступов */
+    margin: 10px; /* Отступы между карточками */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень для карточек */
+    border-radius: 8px; /* Закругленные углы */
+    overflow: hidden; /* Скрывает переполнение */
+    background: linear-gradient(to bottom right, #4CAF50, #f5f5f5); /* Градиент от зеленого к светлому */
+
+}
+
+.flower-image {
+    width: 100%; /* Изображение занимает всю ширину карточки */
+    height: auto; /* Автоматическая высота для сохранения пропорций */
+}
+
+@media (max-width: 768px) {
+    .flower-card {
+        flex: 1 1 calc(50% - 20px); /* На меньших экранах каждая карточка занимает 1/2 ширины */
+    }
+}
+
+@media (max-width: 480px) {
+    .flower-card {
+        flex: 1 1 100%; /* На мобильных экранах карточки занимают всю ширину */
+    }
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
