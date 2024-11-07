@@ -6,11 +6,12 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('', home, name='home'),
+    path('', views.home, name='home'),              # Главная страница
     path('flower/<int:pk>/', views.flower_detail, name='flower_detail'),
     path('add_to_cart/<int:pk>/', views.add_to_cart, name='add_to_cart'),
-    path('flowers/', flower_list, name='flower_list'),  # Страница с цветами
-    path('contacts/', contacts, name='contacts'),  # Страница контактов
-    path('cart/', cart, name='cart'),  # Страница корзины
+    path('flowers/', views.flower_list, name='flower_list'),  # Каталог
+    path('contacts/', views.contacts, name='contacts'),       # Контакты
+    path('cart/', views.cart, name='cart'),                   # Корзина
+    path('register/', views.register, name='register'),       # Регистрация
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

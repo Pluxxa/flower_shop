@@ -7,6 +7,8 @@ def home(request):
     flowers = Flower.objects.all()
     return render(request, 'shop/home.html', {'flowers': flowers})
 
+def register(request):
+    return render(request, 'shop/register.html')  # Шаблон для страницы регистрации
 
 # Представление для отображения каталога цветов
 def flower_list(request):

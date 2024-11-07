@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Магазин цветов{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'shop/css/styles.css' %}">
+    <script src="{% static 'shop/js/hide-header.js' %}" defer></script> <!-- defer чтобы скрипт загрузился после HTML -->
+</head>
+<body>
+    <div class="header-background"></div>
+    <!-- Включение шапки -->
+    {% include "shop/header.html" %}
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Включение подвала -->
+    {% include "shop/footer.html" %}
+    <script src="{% static 'shop/js/headerPadding.js' %}"></script>
+    <script src="{% static 'shop/js/parallaxBackground.js' %}"></script>
+    <script src="{% static 'shop/js/scroll-animation.js' %}"></script>
+    <script src="{% static 'shop/js/buttonActions.js' %}"></script>
+
+</body>
+</html>

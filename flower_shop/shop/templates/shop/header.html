@@ -1,0 +1,20 @@
+{% load static %}
+<header>
+    <div class="header-container">
+        <!-- Логотип -->
+        <div class="logo">
+            <img src="{% static 'shop/images/a_1.png' %}" alt="Логотип" />
+        </div>
+
+        <!-- Навигация -->
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Главная</a></li>
+                <li><a href="{% url 'flower_list' %}">Каталог</a></li>
+                <li><a href="{% url 'contacts' %}">Контакты</a></li>
+                <li><a href="{% url 'cart' %}">Корзина</a></li>
+                <li><a href="{% url 'register' %}">Регистрация</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>

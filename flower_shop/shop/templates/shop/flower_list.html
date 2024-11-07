@@ -1,34 +1,24 @@
-<!-- shop/templates/shop/flower_list.html -->
+{% extends 'shop/base.html' %}
 
-<!DOCTYPE html>
-{% load custom_filters %}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Flower Catalog</title>
-</head>
-<body>
+{% block title %}Главная страница{% endblock %}
 
-    <h1>Flower Catalog</h1>
-    <ul>
-        {% for flower in flowers %}
-            <li>
-                <a href="{% url 'flower_detail' flower.id %}">{{ flower.name }}</a>
-                - {{ flower.price }} RUB
-            </li>
-        {% endfor %}
-    </ul>
+{% block content %}
+    {% if flowers.exists %}
+        <div class="flower-container">
+            {% for flower in flowers %}
+                <div class="flower-card">
+                    <img src="{{ flower.image.url }}" alt="Цветок {{ flower.name }}" class="flower-image">
+                    <h2>{{ flower.name }}</h2>
+                    <p>{{ flower.description }}</p>
+                    <p>Цена: {{ flower.price }} рублей</p>
+                    <div class="button-container">
+                        <button class="add-to-cart">Добавить в корзину</button>
 
-    <h2>Корзина</h2>
-
-    <ul>
-        {% if request.session.cart %}
-            {% for pk, quantity in request.session.cart.items %}
-                <li>{{ flowers_dict|get_item:pk }}: {{ quantity }}</li>
+                    </div>
+                </div>
             {% endfor %}
-        {% else %}
-            <li>Корзина пуста.</li>
-        {% endif %}
-    </ul>
-</body>
-</html>
+        </div>
+    {% else %}
+        <p>К сожалению, цветов пока нет в наличии.</p>
+    {% endif %}
+{% endblock %}
