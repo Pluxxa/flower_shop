@@ -1,14 +1,15 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Flower
-from django.shortcuts import redirect
+from django.contrib.auth.models import User  # Если используем встроенную модель User
+from django.contrib.auth import login, authenticate
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 
 def home(request):
     flowers = Flower.objects.all()
     return render(request, 'shop/home.html', {'flowers': flowers})
 
-def register(request):
-    return render(request, 'shop/register.html')  # Шаблон для страницы регистрации
 
 # Представление для отображения каталога цветов
 def flower_list(request):
@@ -35,3 +36,32 @@ def contacts(request):
 
 def cart(request):
     return render(request, 'shop/cart.html')  # Создайте шаблон для страницы корзины
+
+
+def register(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+
+        # Проверка, существует ли уже такой пользователь
+        if User.objects.filter(username=username).exists():
+            messages.error(request, 'Пользователь с таким именем уже существует')
+            return redirect('register')
+
+        # Создание нового пользователя
+        user = User.objects.create_user(username=username, password=password)
+        user.save()
+
+        # Автоматическая авторизация после регистрации
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            messages.success(request, 'Регистрация прошла успешно')
+            return redirect('home')  # Замените на нужный URL после регистрации
+
+    return render(request, 'shop/register.html')
+
+
+@login_required
+def account(request):
+    return render(request, 'shop/account.html')

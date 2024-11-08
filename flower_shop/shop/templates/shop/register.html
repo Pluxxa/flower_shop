@@ -14,5 +14,10 @@
     <input type="password" id="password" name="password" required>
 
     <button type="submit">Зарегистрироваться</button>
+    {% if messages %}
+        {% for message in messages %}
+            <div class="message {{ message.tags }}">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
 </form>
 {% endblock %}
