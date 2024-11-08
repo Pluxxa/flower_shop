@@ -1,18 +1,10 @@
-/* Общие стили для html и body */
 html, body {
     height: 100%;
     margin: 0;
     font-family: Arial, sans-serif;
-    background: url('/static/shop/images/background.png?v=2') no-repeat center center fixed;
-    background-size: 100% auto;
-    background-attachment: fixed; /* Эффект параллакса */
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-
-body {
+    background: url('/static/shop/images/background.jpg') no-repeat center center fixed;
+    background-size: 100% auto; /* Пробуем cover вместо 100% auto */
+    background-attachment: fixed;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
