@@ -2,42 +2,37 @@
 {% load static %}
 
 {% block content %}
-    <body class="home-page">
-        <!-- Ваш контент здесь -->
+    <div class="panorama">
+        <img src="{% static 'shop/images/a.jpg' %}" alt="Панорама магазина">
+    </div>
 
-        <div class="panorama">
-            <img src="{% static 'shop/images/a.jpg' %}" alt="Панорама магазина">
+    <section class="shop-section left">
+        <div class="content">
+            <img src="{% static 'shop/images/rose_1.jpg' %}" alt="Витрина">
+            <div class="description">
+                <h2>О нашем магазине</h2>
+                <p>Наш магазин предлагает широкий выбор свежих и экзотических цветов...</p>
+            </div>
         </div>
-        <section class="shop-section left">
-            <div class="content">
-                <img src="{% static 'shop/images/rose_1.jpg' %}" alt="Витрина">
-                <div class="description">
-                    <h2>О нашем магазине</h2>
-                    <p>Наш магазин предлагает широкий выбор свежих и экзотических цветов...</p>
-                </div>
-            </div>
-        </section>
+    </section>
 
-        <section class="shop-section right">
-            <div class="content">
-                <div class="description">
-                    <h2>Наши услуги</h2>
-                    <p>Мы предоставляем услуги по оформлению свадеб, корпоративных мероприятий...</p>
-                </div>
-                <img src="{% static 'shop/images/rose_2.jpg' %}" alt="Витрина">
+    <section class="shop-section right">
+        <div class="content">
+            <div class="description">
+                <h2>Наши услуги</h2>
+                <p>Мы предоставляем услуги по оформлению свадеб, корпоративных мероприятий...</p>
             </div>
-        </section>
+            <img src="{% static 'shop/images/rose_2.jpg' %}" alt="Витрина">
+        </div>
+    </section>
 
-        <section class="shop-section left">
-            <div class="content">
-                <img src="{% static 'shop/images/rose_3.jpg' %}" alt="Витрина">
-                <div class="description">
-                    <h2>Почему выбирают нас?</h2>
-                    <p>Мы гарантируем свежесть цветов и высокий уровень сервиса...</p>
-                </div>
+    <section class="shop-section left">
+        <div class="content">
+            <img src="{% static 'shop/images/rose_3.jpg' %}" alt="Витрина">
+            <div class="description">
+                <h2>Почему выбирают нас?</h2>
+                <p>Мы гарантируем свежесть цветов и высокий уровень сервиса...</p>
             </div>
-        </section>
-
-    </body>
-    <!-- Повторите для других секций -->
+        </div>
+    </section>
 {% endblock %}
