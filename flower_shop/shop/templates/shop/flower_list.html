@@ -6,16 +6,15 @@
     {% if flowers.exists %}
         <div class="flower-container">
             {% for flower in flowers %}
-                <div class="flower-card">
+                <a href="{% url 'flower_detail' flower.pk %}" class="flower-card">
                     <img src="{{ flower.image.url }}" alt="Цветок {{ flower.name }}" class="flower-image">
                     <h2>{{ flower.name }}</h2>
                     <p>{{ flower.description }}</p>
                     <p>Цена: {{ flower.price }} рублей</p>
                     <div class="button-container">
                         <button class="add-to-cart">Добавить в корзину</button>
-
                     </div>
-                </div>
+                </a>
             {% endfor %}
         </div>
     {% else %}
