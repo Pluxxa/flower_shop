@@ -1,0 +1,49 @@
+.panorama img {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+}
+
+h2 {
+    font-size: 1.2rem;
+    margin: 5px 0;
+}
+
+p {
+    font-size: 0.9rem;
+    margin: 5px 0;
+    line-height: 1.4;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 50px;
+    color: #555;
+}
+
+a {
+    text-decoration: none;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: 0 auto;
+}
+
+label, input, button {
+    margin: 10px 0;
+    padding: 8px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.highlighted-button:hover {
+    background-color: #45a049;
+}

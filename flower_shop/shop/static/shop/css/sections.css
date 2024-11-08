@@ -1,0 +1,39 @@
+/* section.css */
+.shop-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0;
+    opacity: 0;
+    transform: translateY(100px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.content {
+    display: flex;
+    width: 80%;
+    max-width: 1200px;
+    gap: 30px;
+    align-items: center;
+}
+
+.content img {
+    width: 50%;
+    border-radius: 10px;
+}
+
+.content .description {
+    width: 50%;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+}
+
+.content.reverse {
+    flex-direction: row-reverse;
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}

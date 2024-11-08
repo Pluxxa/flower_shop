@@ -1,15 +1,20 @@
 <!-- shop/templates/shop/flower_detail.html -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>{{ flower.name }}</title>
-</head>
-<body>
-    <h1>{{ flower.name }}</h1>
-    <p>Price: {{ flower.price }} USD</p>
-    <p>Description: {{ flower.description }}</p>
-    <img src="{{ flower.image.url }}" alt="{{ flower.name }}">
-    <button onclick="location.href='{% url 'add_to_cart' flower.id %}'">Add to Cart</button>
-</body>
-</html>
+{% extends 'shop/base.html' %}
+
+{% block title %}Главная страница{% endblock %}
+
+{% block content %}
+    <div class="product-details">
+        <img src="{{ flower.image.url }}" alt="{{ flower.name }} class="product-image">
+        <div class="product-info">
+            <h2 class="product-title">{{ flower.name }}</h2>
+            <p class="product-price">Цена: {{ flower.price }} Руб</p>
+            <p class="product-description">Описание: {{ flower.description }}</p>
+        </div>
+        <div class="button-container">
+            <button class="add-to-cart">Добавить в корзину</button>
+            <button class="quick-buy">Быстрая покупка</button>
+        </div>
+    </div>
+{% endblock %}
+
